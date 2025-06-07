@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalle del Estudiante</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/estilos_estudiantes.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Detalle del Estudiante</h1>
+        <div class="student-detail-card">
+            <h2>{{ estudiante.nombre }} {{ estudiante.apellido }}</h2>
+            <p><strong>Segundo Nombre:</strong> {{ estudiante.segundo_nombre }}</p>
+            <p><strong>Segundo Apellido:</strong> {{ estudiante.segundo_apellido }}</p>
+            <p><strong>Estilo Predominante:</strong> {{ estudiante.estilo_predominante }}</p>
+            <p><strong>Kinestésico:</strong> {{ estudiante.kinestesico }}</p>
+            <p><strong>Visual:</strong> {{ estudiante.visual }}</p>
+            <p><strong>Auditivo:</strong> {{ estudiante.auditivo }}</p>
+            <p><strong>Usuario:</strong> {{ estudiante.usuario }}</p>
+            <a href="{% url 'actualizar_estudiante' estudiante.id_estudiante %}" class="button">Editar</a>
+            <a href="{% url 'eliminar_estudiante' estudiante.id_estudiante %}" class="button">Eliminar</a>
+            <a href="{% url 'listar_estudiantes' %}" class="button">Volver</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Grupos</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/estilos_grupos.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Grupos</h1>
+        <a href="{% url 'crear_grupo' %}" class="button">Crear Nuevo Grupo</a>
+        <ul>
+            {% for grupo in grupos %}
+                <li>
+                    <span>{{ grupo.nombre_grupo }}</span>
+                    <span>
+                        <a href="{% url 'detalle_grupo' grupo.id_grupo %}">Ver</a> |
+                        <a href="{% url 'actualizar_grupo' grupo.id_grupo %}">Editar</a> |
+                        <a href="{% url 'eliminar_grupo' grupo.id_grupo %}">Eliminar</a>
+                    </span>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

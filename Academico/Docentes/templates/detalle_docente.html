@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalles del Docente</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/estilos_docentes.css' %}">
+</head>
+<body>
+<div class="container">
+    <h1>Detalles del Docente</h1>
+    <p><strong>Nombre:</strong> {{ docente.nombre }} {{ docente.apellido }}</p>
+    <p><strong>Segundo Nombre:</strong> {{ docente.segundo_nombre }}</p>
+    <p><strong>Segundo Apellido:</strong> {{ docente.segundo_apellido }}</p>
+    <p><strong>Asignatura:</strong> {{ docente.asignatura }}</p>
+    <p><strong>Usuario:</strong> {{ docente.usuario }}</p>
+
+    <a href="{% url 'listar_docentes' %}" class="button">Volver a la lista</a>
+    <a href="{% url 'actualizar_docente' docente.id_docente %}" class="button">Editar</a>
+    <a href="{% url 'eliminar_docente' docente.id_docente %}" class="button">Eliminar</a>
+</div>
+</body>
+</html>

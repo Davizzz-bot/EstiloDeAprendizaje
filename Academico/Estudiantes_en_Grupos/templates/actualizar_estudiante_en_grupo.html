@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% if form.instance.pk %}Actualizar{% else %}Asignar{% endif %} Estudiante a Grupo</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/estilos_estudiantes_en_grupos.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>{% if form.instance.pk %}Actualizar{% else %}Asignar{% endif %} Estudiante a Grupo</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div>
+                <label for="id_grupo">Grupo:</label>
+                {{ form.id_grupo }}
+            </div>
+            <div>
+                <label for="id_estudiante">Estudiante:</label>
+                {{ form.id_estudiante }}
+            </div>
+            <div>
+                <label for="id_docente">Docente:</label>
+                {{ form.id_docente }}
+            </div>
+            <button type="submit">{% if form.instance.pk %}Actualizar{% else %}Guardar{% endif %}</button>
+        </form>
+        <a href="{% url 'listar_estudiantes_en_grupos' %}" class="button">Cancelar</a>
+    </div>
+</body>
+</html>

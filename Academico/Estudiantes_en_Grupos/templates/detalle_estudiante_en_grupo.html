@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalle de Estudiante en Grupo</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/estilos_estudiantes_en_grupos.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Detalle de Estudiante en Grupo</h1>
+        <p><strong>Estudiante:</strong> {{ relacion.id_estudiante }}</p>
+        <p><strong>Grupo:</strong> {{ relacion.id_grupo }}</p>
+        <p><strong>Docente:</strong> {{ relacion.id_docente }}</p>
+        <a href="{% url 'listar_estudiantes_en_grupos' %}" class="button">Volver a la lista</a>
+    </div>
+</body>
+</html>

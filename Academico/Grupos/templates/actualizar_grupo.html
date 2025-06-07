@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% if form.instance.pk %}Actualizar{% else %}Crear{% endif %} Grupo</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/estilos_grupos.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>{% if form.instance.pk %}Actualizar{% else %}Crear{% endif %} Grupo</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div>
+                <label for="nombre_grupo">Nombre del Grupo:</label>
+                {{ form.nombre_grupo }}
+            </div>
+            <div>
+                <label for="kinestesico">Estilo Kinestésico:</label>
+                {{ form.kinestesico }}
+            </div>
+            <div>
+                <label for="auditivo">Estilo Auditivo:</label>
+                {{ form.auditivo }}
+            </div>
+            <div>
+                <label for="visual">Estilo Visual:</label>
+                {{ form.visual }}
+            </div>
+            <button type="submit">{% if form.instance.pk %}Actualizar{% else %}Guardar{% endif %}</button>
+        </form>
+        <a href="{% url 'listar_grupos' %}" class="button">Cancelar</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalle de Grupo</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/estilos_grupos.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Detalle de Grupo</h1>
+        <p><strong>Nombre del Grupo:</strong> {{ grupo.nombre_grupo }}</p>
+        <p><strong>Estilo Kinestésico:</strong> {{ grupo.kinestesico }}</p>
+        <p><strong>Estilo Auditivo:</strong> {{ grupo.auditivo }}</p>
+        <p><strong>Estilo Visual:</strong> {{ grupo.visual }}</p>
+        <a href="{% url 'listar_grupos' %}" class="button">Volver a la lista</a>
+    </div>
+</body>
+</html>

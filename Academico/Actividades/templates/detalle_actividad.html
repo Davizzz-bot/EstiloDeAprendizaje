@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalle de Actividad</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/estilos_actividades.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Detalle de Actividad</h1>
+        <p><strong>Descripción:</strong> {{ actividad.descripcion_actividad }}</p>
+        <p><strong>Estilo Kinestésico:</strong> {{ actividad.estilo_kinestesico }}</p>
+        <p><strong>Estilo Auditivo:</strong> {{ actividad.estilo_auditivo }}</p>
+        <p><strong>Estilo Visual:</strong> {{ actividad.estilo_visual }}</p>
+        <p><strong>Tipo:</strong> {{ actividad.tipo_actividad }}</p>
+        <p><strong>Nivel de Dificultad:</strong> {{ actividad.nivel_dificultad }}</p>
+        <p><strong>Observaciones:</strong> {{ actividad.observaciones }}</p>
+        <a href="{% url 'listar_actividades' %}" class="button">Volver a la lista</a>
+    </div>
+</body>
+</html>

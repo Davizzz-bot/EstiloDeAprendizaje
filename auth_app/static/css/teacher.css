@@ -1,0 +1,163 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Configuración general */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background: url('../img/fondo.jpg') repeat;
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Contenedor Principal */
+.main-container {
+    width: 90%;
+    max-width: 1200px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Encabezado */
+.header {
+    background-color: #4CAF50;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+.header h1 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.header p {
+    font-size: 1.1rem;
+}
+
+/* Contenido principal */
+.content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 20px;
+    gap: 20px;
+}
+
+/* Paneles */
+.panel {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    flex: 1 1 45%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-height: 70vh;
+    overflow-y: auto; /* Scroll si el contenido es demasiado grande */
+}
+
+.panel h2 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: #4CAF50;
+    border-bottom: 2px solid #4CAF50;
+    padding-bottom: 5px;
+}
+
+/* Tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+td {
+    text-align: center;
+    padding: 10px;
+}
+
+input[type="radio"] {
+    transform: scale(1.2);
+}
+
+/* Botones */
+button, .logout-button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    background-color: #3498db;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover, .logout-button:hover {
+    background-color: #2980b9;
+}
+
+.logout-button {
+    text-decoration: none;
+}
+
+/* Recomendaciones */
+#recommendations-content p {
+    margin-bottom: 10px;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+#recommendations-content strong {
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #f1f1f1;
+    border-top: 1px solid #ddd;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+    }
+
+    .panel {
+        flex: 1 1 100%;
+    }
+
+    .header h1 {
+        font-size: 1.5rem;
+    }
+}

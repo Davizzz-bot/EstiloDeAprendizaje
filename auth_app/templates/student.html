@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel del Estudiante</title>
+    <link rel="stylesheet" href="/static/css/student.css">
+</head>
+<body>
+    <div class="main-container" data-student-id="{{ estudiante.id_estudiante }}">
+        <!-- Encabezado -->
+        <div class="header">
+            <h1>Bienvenido, {{ estudiante.nombre }} {{ estudiante.apellido }}</h1>
+            <p><strong>Estilo Predominante:</strong> 
+                {{ estudiante.estilo_predominante|default:"No definido" }}
+            </p>
+        </div>
+
+        <!-- Contenido Principal -->
+        <div class="content">
+            <!-- Panel de Información -->
+            <div class="panel" id="info-panel">
+                <h2>Tus Porcentajes de Aprendizaje</h2>
+                {% if estudiante.visual is not None and estudiante.auditivo is not None and estudiante.kinestesico is not None %}
+                    <ul>
+                        <li><strong>Visual:</strong> {{ estudiante.visual }}%</li>
+                        <li><strong>Auditivo:</strong> {{ estudiante.auditivo }}%</li>
+                        <li><strong>Kinestésico:</strong> {{ estudiante.kinestesico }}%</li>
+                    </ul>
+                    <!-- Botón de Generar Recomendaciones -->
+                    <button id="generate-recommendations">Generar Recomendaciones</button>
+                {% else %}
+                    <p>No tienes registros de tus estilos de aprendizaje.</p>
+                    <!-- Botón para Redirigir al Test -->
+                    <a href="{% url 'test_page' %}" class="test-button">Realizar Test</a>
+                {% endif %}
+            </div>
+
+            <!-- Panel de Recomendaciones -->
+            <div class="panel" id="recommendations-panel" style="display: none;">
+                <h2>Recomendaciones Personalizadas</h2>
+                <div id="recommendations-content"></div>
+            </div>
+        </div>
+
+        <!-- Pie de Página -->
+        <div class="footer">
+            <a href="{% url 'logout' %}" class="logout-button">Cerrar Sesión</a>
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script src="/static/js/student_recommendations.js"></script>
+</body>
+</html>

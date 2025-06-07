@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Eliminar Grupo</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/estilos_grupos.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Eliminar Grupo</h1>
+        <p>¿Estás seguro de que deseas eliminar el grupo "{{ grupo.nombre_grupo }}"?</p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit">Sí, eliminar</button>
+            <a href="{% url 'listar_grupos' %}" class="button">Cancelar</a>
+        </form>
+    </div>
+</body>
+</html>

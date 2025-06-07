@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Estudiantes</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/estilos_estudiantes.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Estudiantes</h1>
+        <a href="{% url 'crear_estudiante' %}" class="button">Crear nuevo estudiante</a>
+        <div class="estudiantes-list">
+            {% for estudiante in estudiantes %}
+            <div class="estudiante-card">
+                <h3>{{ estudiante.nombre }} {{ estudiante.apellido }}</h3>
+                <p><strong>Estilo Predominante:</strong> {{ estudiante.estilo_predominante }}</p>
+                <p><strong>Usuario:</strong> {{ estudiante.usuario }}</p>
+                <a href="{% url 'detalle_estudiante' estudiante.id_estudiante %}" class="button">Ver Detalles</a>
+                <a href="{% url 'actualizar_estudiante' estudiante.id_estudiante %}" class="button edit-button">Editar</a>
+                <a href="{% url 'eliminar_estudiante' estudiante.id_estudiante %}" class="button delete-button">Eliminar</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

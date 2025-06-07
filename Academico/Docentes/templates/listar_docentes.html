@@ -1,0 +1,48 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Docentes</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/estilos_docentes.css' %}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Lista de Docentes</h1>
+        <a href="{% url 'crear_docente' %}" class="button">Crear nuevo docente</a>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Asignatura</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for docente in docentes %}
+                    <tr>
+                        <td>{{ docente.nombre|default:"" }}</td>
+                        <td>{{ docente.apellido|default:"" }}</td>
+                        <td>{{ docente.asignatura|default:"" }}</td>
+                        <td>
+                            <a href="{% url 'detalle_docente' docente.id_docente %}" class="button">Ver</a>
+                            <a href="{% url 'actualizar_docente' docente.id_docente %}" class="button">Editar</a>
+                            <a href="{% url 'eliminar_docente' docente.id_docente %}" class="button">Eliminar</a>
+                        </td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="4">No hay docentes registrados</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

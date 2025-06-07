@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel del Profesor</title>
+    <link rel="stylesheet" href="/static/css/teacher.css">
+
+</head>
+<body>
+    <!-- Contenedor Principal -->
+    <div class="main-container">
+        <!-- Encabezado -->
+        <div class="header">
+            <h1>Bienvenido, Profesor {{ docente.nombre }} {{ docente.apellido }}</h1>
+            <p><strong>Asignatura:</strong> {{ docente.asignatura }}</p>
+        </div>
+
+        <!-- Contenido Dinámico -->
+        <div class="content">
+            <!-- Panel de Grupos -->
+            <div class="panel" id="groups-panel">
+                <h2>Grupos a Cargo</h2>
+                <form id="teacher-form">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Seleccionar</th>
+                                <th>Nombre del Grupo</th>
+                                <th>Promedio Visual (%)</th>
+                                <th>Promedio Auditivo (%)</th>
+                                <th>Promedio Kinestésico (%)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for grupo in grupos %}
+                            <tr>
+                                <td>
+                                    <input type="radio" name="grupo_id" value="{{ grupo.id_grupo }}" required>
+                                </td>
+                                <td>{{ grupo.nombre_grupo }}</td>
+                                <td>{{ grupo.visual|default:"No disponible" }}</td>
+                                <td>{{ grupo.auditivo|default:"No disponible" }}</td>
+                                <td>{{ grupo.kinestesico|default:"No disponible" }}</td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="5">No tienes grupos asignados.</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <button type="submit">Generar Reporte</button>
+                </form>
+            </div>
+
+            <!-- Panel de Recomendaciones -->
+            <div class="panel" id="recommendations-panel" style="display: none;">
+                <h2>Recomendaciones</h2>
+                <div id="recommendations-content"></div>
+            </div>
+        </div>
+
+        <!-- Botón de Cerrar Sesión -->
+        <div class="footer">
+            <a href="{% url 'logout' %}" class="logout-button">Cerrar Sesión</a>
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script src="/static/js/teacher_recommendations.js"></script>
+</body>
+</html>

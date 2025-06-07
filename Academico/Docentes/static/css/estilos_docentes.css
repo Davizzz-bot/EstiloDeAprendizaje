@@ -1,0 +1,202 @@
+/* General reset for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and page styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+/* Main container for all content */
+.container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for the details text */
+.container p {
+    margin-bottom: 15px;  /* Espacio entre cada párrafo */
+    font-size: 1.1em;
+}
+
+.container strong {
+    font-weight: bold;
+}
+
+
+/* Header styling */
+h1 {
+    font-size: 2em;
+    color: #2d3e50;
+    margin-bottom: 20px;
+}
+
+/* Styling for forms and inputs */
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 5px;
+    display: block;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    background-color: #f9f9f9;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus {
+    border-color: #66afe9;
+    outline: none;
+}
+
+/* Buttons */
+/* Estilo de los botones en las acciones de tabla */
+.button {
+    margin-right: 10px;  /* Agregar espacio entre los botones */
+    padding: 10px 20px;  /* Asegurarnos de que los botones tengan un buen tamaño */
+    font-size: 1em;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+.button:active {
+    background-color: #003366;
+}
+
+/* Opcional: hacer que los botones se alineen mejor */
+.table-actions {
+    display: flex;
+    justify-content: flex-start;
+}
+button,
+a.btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+button:hover,
+a.btn:hover {
+    background-color: #0056b3;
+}
+
+button:active,
+a.btn:active {
+    background-color: #003366;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #007bff;
+    color: white;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Link Styling */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Styling for Alerts */
+.alert {
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+}
+
+.alert-success {
+    background-color: #28a745;
+}
+
+.alert-danger {
+    background-color: #dc3545;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+    
+    .form-group {
+        margin-bottom: 10px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"] {
+        font-size: 0.9em;
+        padding: 8px;
+    }
+
+    button,
+    a.btn {
+        font-size: 0.9em;
+        padding: 8px 16px;
+    }
+    
+    
+
+
+}

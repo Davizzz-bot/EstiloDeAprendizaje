@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Docente</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/estilos_docentes.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Crear Docente</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_nombre">Nombre:</label>
+                {{ form.nombre }}
+            </div>
+            <div class="form-group">
+                <label for="id_segundo_nombre">Segundo Nombre:</label>
+                {{ form.segundo_nombre }}
+            </div>
+            <div class="form-group">
+                <label for="id_apellido">Apellido:</label>
+                {{ form.apellido }}
+            </div>
+            <div class="form-group">
+                <label for="id_segundo_apellido">Segundo Apellido:</label>
+                {{ form.segundo_apellido }}
+            </div>
+            <div class="form-group">
+                <label for="id_asignatura">Asignatura:</label>
+                {{ form.asignatura }}
+            </div>
+            <div class="form-group">
+                <label for="id_usuario">Usuario:</label>
+                {{ form.usuario }}
+            </div>
+            <div class="form-group">
+                <label for="id_contrasena">Contraseña:</label>
+                {{ form.contrasena }}
+            </div>
+            <button type="submit" class="btn">Crear Docente</button>
+            <a href="{% url 'listar_docentes' %}" class="btn">Cancelar</a>
+        </form>
+        
+    </div>
+</body>
+</html>
