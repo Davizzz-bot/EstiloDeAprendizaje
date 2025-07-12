@@ -13,7 +13,7 @@ import google.generativeai as genai
 from django.conf import settings
 
 # Configuración de la API de Google Gemini
-genai.configure(api_key="AIzaSyBaImFMnJUhCiW9mJ-IqkbjiSPd-v-s6nI")  # Coloca tu clave API válida aquí
+genai.configure(api_key="")  # Coloca tu clave API válida aquí
 
 # Inicialización del modelo de embeddings
 model = SentenceTransformer('all-MiniLM-L6-v2')
